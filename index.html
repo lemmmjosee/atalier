@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Atelier Métamorphe — Transformable clothing patterns & tutorials</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;0,700;1,500&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#16224a;--paper:#eaf0f8;--card:#fff;--thread:#c9402b;--gold:#e0a82e;--mute:#566180;--line:#b9c6df;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--ink:#dfe7fb;--paper:#0f1630;--card:#18214a;--mute:#9aa8d0;--line:#34427a}}
+:root[data-theme=dark]{--ink:#dfe7fb;--paper:#0f1630;--card:#18214a;--mute:#9aa8d0;--line:#34427a}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 Figtree,system-ui,sans-serif;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:40px 40px;background-attachment:fixed}
+body:before{content:"";position:fixed;inset:0;background:var(--paper);opacity:.86;z-index:-1}
+h1,h2,h3{font-family:'Bodoni Moda',Georgia,serif;line-height:1.1;margin:0 0 .5em}
+h1{font-size:clamp(2.4rem,7vw,5rem);font-weight:700}h2{font-size:clamp(1.8rem,4vw,2.8rem)}h3{font-size:1.3rem}
+p{max-width:62ch}a{color:inherit}
+header{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:2px dashed var(--thread);display:flex;align-items:center;justify-content:space-between;padding:10px 5vw;gap:12px}
+.logo{font-family:'Bodoni Moda',serif;font-weight:700;font-size:1.25rem;text-decoration:none;display:flex;gap:8px;align-items:center}
+nav{display:flex;gap:18px;flex-wrap:wrap}nav a{text-decoration:none;font-weight:600;font-size:.95rem;padding:4px 0;border-bottom:2px solid transparent;transition:.2s}nav a:hover{border-color:var(--thread)}
+section{padding:70px 5vw;max-width:1200px;margin:auto}
+.btn{display:inline-block;border:2px solid var(--ink);background:var(--ink);color:var(--paper);padding:11px 24px;border-radius:999px;font:600 1rem Figtree,sans-serif;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translate(-3px,-3px);box-shadow:4px 4px 0 var(--thread)}.btn.ghost{background:transparent;color:var(--ink)}
+.btn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;min-height:80vh}
+.hero p{font-size:1.15rem;color:var(--mute)}.hero .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.hero h1 em{color:var(--thread)}
+.stage{position:relative;background:var(--card);border:2px solid var(--ink);border-radius:200px 200px 24px 24px;padding:20px;text-align:center;box-shadow:10px 10px 0 var(--line)}
+.stage:before{content:"";position:absolute;inset:8px;border:2px dashed var(--thread);border-radius:192px 192px 16px 16px;pointer-events:none}
+.fig{width:100%;max-width:320px;height:auto}.fig .g{opacity:0;transform-origin:100px 130px;transform:scale(.92) translateY(8px);transition:opacity .6s,transform .6s}
+.fig .g.on{opacity:1;transform:none}
+.fig .gp{stroke:var(--ink);stroke-width:2;stroke-dasharray:5 3}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:12px 0 4px;position:relative}
+.chip{border:2px solid var(--ink);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 16px;font:600 .9rem Figtree;cursor:pointer;transition:.2s}
+.chip:hover{background:var(--gold)}.chip[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.cap{min-height:3.4em;color:var(--mute);font-size:.95rem;margin:6px auto 0;position:relative}
+.tape{height:26px;margin:0 -5vw;background:repeating-linear-gradient(90deg,var(--gold) 0 2px,transparent 2px 12px),linear-gradient(var(--gold),var(--gold)) bottom/100% 2px no-repeat;opacity:.9}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
+.card{background:var(--card);border:2px solid var(--ink);border-radius:6px;padding:18px;position:relative;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:rotate(-.8deg) translateY(-5px);box-shadow:8px 8px 0 var(--thread)}
+.card:before{content:"";position:absolute;inset:5px;border:1px dashed var(--line);pointer-events:none}
+.prev{background:var(--paper);border:1px solid var(--line);margin-bottom:12px;display:block;width:100%;height:150px}
+.tag{display:inline-block;font-size:.78rem;font-weight:600;border:1.5px solid var(--ink);border-radius:4px;padding:1px 8px;margin:0 4px 4px 0}
+.tag.d1{background:#bfe3c6;color:#14331b}.tag.d2{background:#f6df9b;color:#3a2d05}.tag.d3{background:#f3b5a9;color:#4a1309}
+.meta{font-size:.88rem;color:var(--mute);margin:6px 0}.card .btn{margin-top:10px;padding:8px 18px;font-size:.9rem}
+.filters{display:grid;grid-template-columns:2fr repeat(4,1fr);gap:10px;margin:20px 0 28px}
+.filters input,.filters select{padding:11px 12px;border:2px solid var(--ink);border-radius:8px;background:var(--card);color:var(--ink);font:inherit;font-size:.95rem;width:100%}
+.tut{display:grid;grid-template-columns:260px 1fr;gap:26px;background:var(--card);border:2px solid var(--ink);padding:24px;border-radius:6px;box-shadow:10px 10px 0 var(--line)}
+.tut ul{padding-left:18px;margin:6px 0}.steptabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.bar{height:8px;background:var(--line);border-radius:4px;overflow:hidden;margin:10px 0 18px}.bar i{display:block;height:100%;background:var(--thread);transition:width .4s}
+.tip{border-left:5px solid var(--gold);background:var(--paper);padding:10px 14px;margin:14px 0;font-size:.95rem}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;counter-reset:s}
+.steps div{counter-increment:s;padding-top:10px;border-top:3px dashed var(--thread)}.steps div:before{content:counter(s);font:700 2.4rem 'Bodoni Moda',serif;color:var(--thread)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.modal{position:fixed;inset:0;background:rgba(10,15,40,.7);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}.modal.open{display:flex}
+.sheet{background:#fff;color:#16224a;width:min(760px,100%);max-height:92vh;overflow:auto;padding:24px;border-radius:6px}
+footer{text-align:center;padding:40px 5vw;border-top:2px dashed var(--thread);color:var(--mute)}
+@media(max-width:860px){.hero,.tut,.two{grid-template-columns:1fr}.filters{grid-template-columns:1fr 1fr}.filters input{grid-column:1/-1}.hero{min-height:0}nav{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media print{body *{visibility:hidden}.sheet,.sheet *{visibility:visible}.sheet{position:absolute;inset:0;max-height:none;width:100%}.noprint{display:none!important}}
+</style></head><body>
+<header><a class="logo" href="#top"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="22" r="4"/><circle cx="21" cy="22" r="4"/><path d="M11 19 21 4M19 19 9 4"/></svg>Atelier Métamorphe</a>
+<nav><a href="#patterns">Patterns</a><a href="#tutorials">Tutorials</a><a href="#transform">Transformations</a><a href="#how">How it works</a><a href="#about">About</a></nav></header>
+
+<section class="hero" id="top"><div>
+<h1>One garment. <em>Many</em> lives.</h1>
+<p>Sew a single piece of fabric that wraps, twists and ties into a top, a skirt, a dress or a cape. Download printable patterns, follow illustrated tutorials, and learn the construction behind every transformation.</p>
+<div class="row"><a class="btn" href="#patterns">Browse patterns</a><a class="btn ghost" href="#tutorials">Explore tutorials</a></div></div>
+<div class="stage"><div data-fig="hero"></div></div></section>
+<div class="tape"></div>
+
+<section id="patterns"><h2>Printable pattern library</h2><p>Every pattern prints on home paper at 100% scale, with registration marks for taping sheets together.</p>
+<div class="filters" role="search">
+<input id="q" type="search" placeholder="Search patterns (e.g. wrap, reversible)" aria-label="Search patterns">
+<select id="fType" aria-label="Clothing type"><option value="">All clothing</option><option>Top</option><option>Skirt</option><option>Dress</option><option>Multi-way</option></select>
+<select id="fDiff" aria-label="Difficulty"><option value="">Any difficulty</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select>
+<select id="fSize" aria-label="Size"><option value="">Any size</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+<select id="fTr" aria-label="Transformation"><option value="">Any style</option><option>No-sew</option><option>Reversible</option><option>Adjustable</option><option>Convertible</option></select></div>
+<div class="grid" id="plist"></div><p id="none" hidden>No patterns match. Clear a filter to see more.</p></section>
+
+<section id="tutorials"><h2>Step-by-step tutorials</h2>
+<div class="steptabs" id="ttabs"></div><div class="tut" id="tut"></div></section>
+
+<section id="transform"><h2>One garment → multiple styles</h2>
+<div class="two"><div class="stage" style="border-radius:24px"><div data-fig="show"></div></div>
+<div><h3 id="tname">The Infinity Wrap</h3><p>Pick a style and watch the same circle of jersey change shape. Each style has its own tying guide in the tutorials.</p><div class="grid" id="tcards" style="grid-template-columns:1fr 1fr;gap:10px"></div></div></div></section>
+
+<section id="how"><h2>How it works</h2><div class="steps">
+<div><h3>Choose</h3><p>Filter patterns by garment, size and skill level.</p></div>
+<div><h3>Print</h3><p>Download the PDF-ready sheet and tape the pages together.</p></div>
+<div><h3>Sew</h3><p>Follow the illustrated steps, with a tip at every tricky seam.</p></div>
+<div><h3>Transform</h3><p>Tie, twist and wrap it into each style you saw above.</p></div></div></section>
+
+<section id="about"><h2>About the project</h2><p>Atelier Métamorphe is a free learning space for students and first-time sewists who want fewer garments that do more. Patterns are drafted to use simple rectangles and circles, so you can learn construction without expensive tools or complicated fittings.</p></section>
+<footer>Stitched with care · Patterns are free for personal and classroom use</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Pattern viewer"><div class="sheet" id="sheet"></div></div>
+
+<script>
+const STY=[
+{n:"Top",d:"M70 62Q100 78 130 62L138 128H62Z M70 62 60 30M130 62 140 30",c:"Cross the front panels and tie behind the neck."},
+{n:"Skirt",d:"M62 126H138L170 238H30Z",c:"Step in, pull to the waist and knot at the hip."},
+{n:"Dress",d:"M70 62Q100 78 130 62L138 126L170 238H30L62 126Z",c:"Wrap high, cross at the back and tie at the waist."},
+{n:"Cape",d:"M62 66Q100 50 138 66L178 168Q100 196 22 168Z",c:"Drape over shoulders and fasten at the collarbone."}];
+const COL=["#c9402b","#16224a","#e0a82e","#3d7a8c"];
+function fig(el,auto){
+ el.innerHTML=`<svg class="fig" viewBox="0 0 200 260" role="img" aria-label="Garment transforming">
+ <g fill="none" stroke="currentColor" stroke-width="1.5" opacity=".5"><circle cx="100" cy="30" r="14"/><path d="M100 44V60M70 62Q100 74 130 62M64 64 62 130M136 64 138 130M62 130 58 250M138 130 142 250"/></g>
+ ${STY.map((s,i)=>`<g class="g" data-i="${i}"><path class="gp" fill="${COL[i]}" fill-opacity=".85" d="${s.d}"/><path d="${s.d.split('M')[1]?'M'+s.d.split('M')[1]:''}" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="2 4" opacity=".6"/></g>`).join("")}</svg>
+ <div class="chips">${STY.map((s,i)=>`<button class="chip" aria-pressed="false" data-i="${i}">${s.n}</button>`).join("")}</div><p class="cap" aria-live="polite"></p>`;
+ let cur=0,t;
+ const set=i=>{cur=i;el.querySelectorAll('.g').forEach(g=>g.classList.toggle('on',+g.dataset.i===i));
+  el.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',+c.dataset.i===i));
+  el.querySelector('.cap').textContent=STY[i].n+": "+STY[i].c};
+ el.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{clearInterval(t);set(+c.dataset.i)});
+ set(0);if(auto&&!matchMedia('(prefers-reduced-motion:reduce)').matches)t=setInterval(()=>set((cur+1)%4),2800);
+}
+fig(document.querySelector('[data-fig=hero]'),true);fig(document.querySelector('[data-fig=show]'),false);
+document.getElementById('tcards').innerHTML=STY.map(s=>`<div class="card"><h3>${s.n}</h3><p class="meta">${s.c}</p></div>`).join("");
+
+const P=[
+{n:"Infinity Wrap Dress",t:"Multi-way",d:"Beginner",s:["XS","S","M","L","XL"],tr:["No-sew","Convertible"],m:["Jersey","Thread"],i:"Circle of stretch jersey that becomes a dress, top, skirt or cape.",x:"Dress"},
+{n:"Reversible Wrap Skirt",t:"Skirt",d:"Beginner",s:["S","M","L"],tr:["Reversible","Adjustable"],m:["Cotton","Thread","Buttons"],i:"Two prints in one skirt, with an adjustable wrap waist.",x:"Skirt"},
+{n:"Scarf-to-Top",t:"Top",d:"Beginner",s:["XS","S","M","L","XL"],tr:["No-sew","Convertible"],m:["Silk-feel scarf"],i:"A square scarf folded into a halter, tube or crossover top.",x:"Top"},
+{n:"Convertible Pinafore",t:"Dress",d:"Intermediate",s:["S","M","L","XL"],tr:["Adjustable","Convertible"],m:["Linen","Thread","Snaps"],i:"Wear it as a pinafore, a skirt or a long vest using snap-on straps.",x:"Dress"},
+{n:"Twist-Front Top",t:"Top",d:"Intermediate",s:["XS","S","M"],tr:["Adjustable"],m:["Rayon","Elastic","Thread"],i:"A twisted bodice with ties that change the neckline.",x:"Top"},
+{n:"Eight-Way Gown",t:"Multi-way",d:"Advanced",s:["S","M","L"],tr:["Convertible","Adjustable","Reversible"],m:["Satin","Lining","Thread","Hook & eye"],i:"Reversible full-length gown with eight documented wearing styles.",x:"Dress"},
+{n:"Pocket Cape-Skirt",t:"Skirt",d:"Intermediate",s:["M","L","XL"],tr:["Convertible"],m:["Wool blend","Thread"],i:"A half-circle skirt that drapes as a cape with hidden pockets.",x:"Cape"},
+{n:"Tie-Hem Tank",t:"Top",d:"Beginner",s:["XS","S","M","L","XL"],tr:["No-sew","Adjustable"],m:["T-shirt","Scissors"],i:"Upcycle a T-shirt into a tank with an adjustable tied hem.",x:"Top"}];
+const dN={Beginner:1,Intermediate:2,Advanced:3};
+function mini(k){const s=STY.find(z=>z.n===k)||STY[2];return `<svg class="prev" viewBox="0 0 200 260" preserveAspectRatio="xMidYMid meet"><path d="${s.d}" fill="none" stroke="#c9402b" stroke-width="2.5" stroke-dasharray="6 4"/><path d="M20 250H180M20 244V256M180 244V256" stroke="#e0a82e" stroke-width="2"/></svg>`}
+const $=id=>document.getElementById(id);
+function render(){const q=$('q').value.toLowerCase(),a=$('fType').value,b=$('fDiff').value,c=$('fSize').value,e=$('fTr').value;
+ const r=P.filter(p=>(!q||(p.n+p.i+p.m.join()+p.tr.join()).toLowerCase().includes(q))&&(!a||p.t===a)&&(!b||p.d===b)&&(!c||p.s.includes(c))&&(!e||p.tr.includes(e)));
+ $('none').hidden=r.length>0;
+ $('plist').innerHTML=r.map(p=>`<article class="card">${mini(p.x)}<h3>${p.n}</h3><span class="tag d${dN[p.d]}">${p.d}</span>${p.tr.map(t=>`<span class="tag">${t}</span>`).join("")}<p class="meta">${p.i}</p><p class="meta"><b>Sizes:</b> ${p.s.join(", ")}<br><b>Materials:</b> ${p.m.join(", ")}</p><button class="btn" data-n="${p.n}">Download / print</button></article>`).join("")}
+['q','fType','fDiff','fSize','fTr'].forEach(i=>$(i).addEventListener('input',render));render();
+$('plist').onclick=e=>{const b=e.target.closest('button');if(!b)return;const p=P.find(z=>z.n===b.dataset.n);
+ $('sheet').innerHTML=`<div class="noprint" style="display:flex;justify-content:space-between;gap:8px;margin-bottom:12px"><button class="btn" onclick="print()">Print / save as PDF</button><button class="btn ghost" style="color:#16224a" onclick="modal.classList.remove('open')">Close</button></div>
+ <h2 style="font-family:'Bodoni Moda',serif">${p.n}</h2><p>${p.i} Sizes: ${p.s.join(", ")}. Materials: ${p.m.join(", ")}.</p>
+ <svg viewBox="0 0 400 300" style="width:100%;border:2px solid #16224a;background:#f4f8ff"><defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#cdd8ee" stroke-width=".7"/></pattern></defs><rect width="400" height="300" fill="url(#g)"/><g transform="translate(110 20) scale(.95)"><path d="${(STY.find(s=>s.n===p.x)||STY[2]).d}" fill="none" stroke="#c9402b" stroke-width="2.5" stroke-dasharray="7 4"/></g><path d="M20 285H120M20 279V291M120 279V291" stroke="#16224a"/><text x="30" y="272" font-size="11" fill="#16224a">Test square: 10 cm — check scale</text><path d="M200 12v14M193 19h14" stroke="#16224a"/><text x="300" y="50" font-size="11" fill="#16224a">Grainline ↕</text><path d="M330 60V150" stroke="#16224a" marker-end="url(#a)"/></svg>
+ <p style="font-size:.85rem">Print at 100% scale. Cut on the dashed line, adding a 1.5 cm seam allowance.</p>`;
+ modal.classList.add('open')};
+modal.onclick=e=>{if(e.target===modal)modal.classList.remove('open')};addEventListener('keydown',e=>{if(e.key==='Escape')modal.classList.remove('open')});
+
+const T=[{n:"Infinity Wrap Dress",time:"3 hours",d:"Beginner",tools:["2 m stretch jersey","Scissors","Pins","Tape measure"],
+ steps:[["Mark the circle","Fold the fabric in quarters and measure 90 cm from the folded corner. Mark an arc every 5 cm.","Chalk lines wash out, so press lightly."],["Cut the shape","Cut along the arc, then cut a 5 cm circle at the folded corner for the waist.","Cut with long, even strokes to keep edges smooth."],["Finish the edge","Fold the raw edge 1 cm twice and pin all around.","Pin every 5 cm on curves."],["Stitch the hem","Sew with a narrow zigzag so the seam stretches with the fabric.","Don't pull the jersey while sewing."],["Add the waist ties","Cut two 2 m strips, fold and stitch to the waist opening.","Backstitch at both ends."],["Try every style","Wrap, cross and tie to make the top, skirt, dress and cape.","Practice in front of a mirror."]]},
+{n:"Reversible Wrap Skirt",time:"4 hours",d:"Beginner",tools:["1.5 m of two cottons","Thread","Iron"],
+ steps:[["Cut both layers","Cut the pattern twice, one from each print.","Match grainlines."],["Pin right sides together","Place layers face to face and pin around the edge.","Leave a 15 cm gap."],["Stitch and turn","Sew around, trim curves and turn through the gap.","Clip notches on curves."],["Press flat","Iron the seam and topstitch close to the edge.","Use a pressing cloth."],["Attach the ties","Sew ties at the waist corners and enjoy two skirts.","Reinforce with a small box stitch."]]},
+{n:"Scarf-to-Top",time:"20 minutes",d:"Beginner",tools:["Square scarf 1 m","No sewing needed"],
+ steps:[["Fold the triangle","Fold the scarf diagonally.","Keep the edges aligned."],["Cross the corners","Bring the two side corners behind your back.","Hold the center against your chest."],["Tie","Tie the corners and the top point behind your neck.","Double knots stay in place."]]}];
+let ti=0,si=0;const sv=n=>`<svg viewBox="0 0 300 160" style="width:100%;background:var(--paper);border:1px solid var(--line)"><path d="M10 80H290" stroke="#c9402b" stroke-width="3" stroke-dasharray="10 6"/><circle cx="${40+n*40}" cy="80" r="14" fill="none" stroke="currentColor" stroke-width="2"/><path d="M${40+n*40} 50V110M${25+n*40} 80H${55+n*40}" stroke="currentColor"/><path d="M10 140H${60+n*45}" stroke="#e0a82e" stroke-width="3"/></svg>`;
+function tut(){const t=T[ti],s=t.steps[si];
+ $('ttabs').innerHTML=T.map((x,i)=>`<button class="chip" aria-pressed="${i===ti}" data-t="${i}">${x.n}</button>`).join("");
+ $('tut').innerHTML=`<aside><h3>${t.n}</h3><span class="tag d1">${t.d}</span><span class="tag">${t.time}</span><p class="meta"><b>Materials and tools</b></p><ul>${t.tools.map(x=>`<li>${x}</li>`).join("")}</ul><p class="meta">Video walkthrough: coming soon for this project.</p></aside>
+ <div><p class="meta">Step ${si+1} of ${t.steps.length}</p><div class="bar"><i style="width:${(si+1)/t.steps.length*100}%"></i></div><h3>${s[0]}</h3>${sv(si)}<p>${s[1]}</p><div class="tip"><b>Sewing tip:</b> ${s[2]}</div>
+ <button class="btn ghost" id="pv" ${si?'':'disabled'}>Previous step</button> <button class="btn" id="nx" ${si<t.steps.length-1?'':'disabled'}>Next step</button></div>`;
+ $('pv').onclick=()=>{si--;tut()};$('nx').onclick=()=>{si++;tut()};}
+$('ttabs').onclick=e=>{const b=e.target.closest('button');if(b){ti=+b.dataset.t;si=0;tut()}};tut();
+</script></body></html>
