@@ -1,159 +1,143 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Atelier Métamorphe — Transformable clothing patterns & tutorials</title>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;0,700;1,500&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Atelier Métamorphe — One garment. Many lives.</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500;700&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#16224a;--paper:#eaf0f8;--card:#fff;--thread:#c9402b;--gold:#e0a82e;--mute:#566180;--line:#b9c6df;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--ink:#dfe7fb;--paper:#0f1630;--card:#18214a;--mute:#9aa8d0;--line:#34427a}}
-:root[data-theme=dark]{--ink:#dfe7fb;--paper:#0f1630;--card:#18214a;--mute:#9aa8d0;--line:#34427a}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
-body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 Figtree,system-ui,sans-serif;
-background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:40px 40px;background-attachment:fixed}
-body:before{content:"";position:fixed;inset:0;background:var(--paper);opacity:.86;z-index:-1}
-h1,h2,h3{font-family:'Bodoni Moda',Georgia,serif;line-height:1.1;margin:0 0 .5em}
-h1{font-size:clamp(2.4rem,7vw,5rem);font-weight:700}h2{font-size:clamp(1.8rem,4vw,2.8rem)}h3{font-size:1.3rem}
-p{max-width:62ch}a{color:inherit}
-header{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:2px dashed var(--thread);display:flex;align-items:center;justify-content:space-between;padding:10px 5vw;gap:12px}
-.logo{font-family:'Bodoni Moda',serif;font-weight:700;font-size:1.25rem;text-decoration:none;display:flex;gap:8px;align-items:center}
-nav{display:flex;gap:18px;flex-wrap:wrap}nav a{text-decoration:none;font-weight:600;font-size:.95rem;padding:4px 0;border-bottom:2px solid transparent;transition:.2s}nav a:hover{border-color:var(--thread)}
-section{padding:70px 5vw;max-width:1200px;margin:auto}
-.btn{display:inline-block;border:2px solid var(--ink);background:var(--ink);color:var(--paper);padding:11px 24px;border-radius:999px;font:600 1rem Figtree,sans-serif;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s}
-.btn:hover{transform:translate(-3px,-3px);box-shadow:4px 4px 0 var(--thread)}.btn.ghost{background:transparent;color:var(--ink)}
-.btn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;min-height:80vh}
-.hero p{font-size:1.15rem;color:var(--mute)}.hero .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
-.hero h1 em{color:var(--thread)}
-.stage{position:relative;background:var(--card);border:2px solid var(--ink);border-radius:200px 200px 24px 24px;padding:20px;text-align:center;box-shadow:10px 10px 0 var(--line)}
-.stage:before{content:"";position:absolute;inset:8px;border:2px dashed var(--thread);border-radius:192px 192px 16px 16px;pointer-events:none}
-.fig{width:100%;max-width:320px;height:auto}.fig .g{opacity:0;transform-origin:100px 130px;transform:scale(.92) translateY(8px);transition:opacity .6s,transform .6s}
-.fig .g.on{opacity:1;transform:none}
-.fig .gp{stroke:var(--ink);stroke-width:2;stroke-dasharray:5 3}
-.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:12px 0 4px;position:relative}
-.chip{border:2px solid var(--ink);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 16px;font:600 .9rem Figtree;cursor:pointer;transition:.2s}
-.chip:hover{background:var(--gold)}.chip[aria-pressed=true]{background:var(--ink);color:var(--paper)}
-.cap{min-height:3.4em;color:var(--mute);font-size:.95rem;margin:6px auto 0;position:relative}
-.tape{height:26px;margin:0 -5vw;background:repeating-linear-gradient(90deg,var(--gold) 0 2px,transparent 2px 12px),linear-gradient(var(--gold),var(--gold)) bottom/100% 2px no-repeat;opacity:.9}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
-.card{background:var(--card);border:2px solid var(--ink);border-radius:6px;padding:18px;position:relative;transition:transform .25s,box-shadow .25s}
-.card:hover{transform:rotate(-.8deg) translateY(-5px);box-shadow:8px 8px 0 var(--thread)}
-.card:before{content:"";position:absolute;inset:5px;border:1px dashed var(--line);pointer-events:none}
-.prev{background:var(--paper);border:1px solid var(--line);margin-bottom:12px;display:block;width:100%;height:150px}
-.tag{display:inline-block;font-size:.78rem;font-weight:600;border:1.5px solid var(--ink);border-radius:4px;padding:1px 8px;margin:0 4px 4px 0}
-.tag.d1{background:#bfe3c6;color:#14331b}.tag.d2{background:#f6df9b;color:#3a2d05}.tag.d3{background:#f3b5a9;color:#4a1309}
-.meta{font-size:.88rem;color:var(--mute);margin:6px 0}.card .btn{margin-top:10px;padding:8px 18px;font-size:.9rem}
-.filters{display:grid;grid-template-columns:2fr repeat(4,1fr);gap:10px;margin:20px 0 28px}
-.filters input,.filters select{padding:11px 12px;border:2px solid var(--ink);border-radius:8px;background:var(--card);color:var(--ink);font:inherit;font-size:.95rem;width:100%}
-.tut{display:grid;grid-template-columns:260px 1fr;gap:26px;background:var(--card);border:2px solid var(--ink);padding:24px;border-radius:6px;box-shadow:10px 10px 0 var(--line)}
-.tut ul{padding-left:18px;margin:6px 0}.steptabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-.bar{height:8px;background:var(--line);border-radius:4px;overflow:hidden;margin:10px 0 18px}.bar i{display:block;height:100%;background:var(--thread);transition:width .4s}
-.tip{border-left:5px solid var(--gold);background:var(--paper);padding:10px 14px;margin:14px 0;font-size:.95rem}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;counter-reset:s}
-.steps div{counter-increment:s;padding-top:10px;border-top:3px dashed var(--thread)}.steps div:before{content:counter(s);font:700 2.4rem 'Bodoni Moda',serif;color:var(--thread)}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
-.modal{position:fixed;inset:0;background:rgba(10,15,40,.7);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}.modal.open{display:flex}
-.sheet{background:#fff;color:#16224a;width:min(760px,100%);max-height:92vh;overflow:auto;padding:24px;border-radius:6px}
-footer{text-align:center;padding:40px 5vw;border-top:2px dashed var(--thread);color:var(--mute)}
-@media(max-width:860px){.hero,.tut,.two{grid-template-columns:1fr}.filters{grid-template-columns:1fr 1fr}.filters input{grid-column:1/-1}.hero{min-height:0}nav{display:none}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-@media print{body *{visibility:hidden}.sheet,.sheet *{visibility:visible}.sheet{position:absolute;inset:0;max-height:none;width:100%}.noprint{display:none!important}}
+:root{--bg:#f6f1ea;--ink:#2b2622;--card:#fffdf9;--sand:#e5d9c8;--acc:#a8442f;--mute:#6f655b;box-sizing:border-box}
+:root[data-t=dark]{--bg:#1c1815;--ink:#efe6da;--card:#26211d;--sand:#3d352d;--acc:#e8886b;--mute:#b3a798}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Figtree,system-ui,sans-serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+h1,h2,h3{font-family:'Bodoni Moda',Georgia,serif;line-height:1.12;margin:0 0 .5em}h1{font-size:clamp(2.5rem,7vw,4.8rem)}h2{font-size:clamp(1.8rem,4vw,2.6rem)}h3{font-size:1.2rem}
+p{margin:0 0 .8em;max-width:62ch}section{max-width:1160px;margin:auto;padding:72px 5vw}
+.eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);font-weight:600;margin-bottom:8px}
+header{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--sand);display:flex;align-items:center;gap:16px;padding:10px 5vw}
+.logo{font:700 1.2rem 'Bodoni Moda',serif;text-decoration:none;margin-right:auto}
+nav{display:flex;gap:22px}nav a{text-decoration:none;font-size:.95rem;font-weight:600;padding:4px 0;border-bottom:2px solid transparent;transition:.2s}nav a:hover{border-color:var(--acc)}
+.ib{border:1px solid var(--ink);background:none;color:var(--ink);border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:1rem}.burger{display:none}
+.btn{display:inline-block;border:1px solid var(--ink);background:var(--ink);color:var(--bg);padding:11px 26px;border-radius:999px;font:600 .95rem Figtree;cursor:pointer;text-decoration:none;transition:.2s}
+.btn:hover{background:var(--acc);border-color:var(--acc);color:#fff}.btn.o{background:none;color:var(--ink)}.btn.o:hover{background:var(--sand);color:var(--ink);border-color:var(--ink)}.btn.s{padding:7px 16px;font-size:.85rem}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;min-height:82vh}.hero em{color:var(--acc)}.hero p.l{font-size:1.15rem;color:var(--mute)}.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.stage{background:var(--sand);border-radius:240px 240px 12px 12px;padding:28px 20px 18px;text-align:center}
+.fig{width:100%;max-width:280px;height:auto;color:var(--ink)}.fig .gp{stroke:var(--ink);stroke-width:1.5;stroke-dasharray:5 3;animation:in .5s}@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.cap{color:var(--mute);font-size:.95rem;min-height:3em;margin:8px auto 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--sand);border-radius:6px;padding:18px;transition:.25s;position:relative}.card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.1)}
+.pv{background:var(--sand);border-radius:4px;height:170px;display:flex;justify-content:center;margin-bottom:12px}.pv svg{height:100%}
+.tag{display:inline-block;font-size:.76rem;border:1px solid var(--mute);border-radius:99px;padding:0 10px;margin:0 4px 4px 0;color:var(--mute)}
+.meta{font-size:.88rem;color:var(--mute);margin:4px 0}.fav{position:absolute;top:12px;right:12px;background:var(--card);border:1px solid var(--sand);border-radius:50%;width:34px;height:34px;cursor:pointer;color:var(--acc);font-size:1.05rem}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 26px}.tools input,.tools select{padding:10px 14px;border:1px solid var(--ink);border-radius:999px;background:var(--card);color:var(--ink);font:inherit;font-size:.92rem}.tools input[type=search]{flex:1;min-width:200px}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.pill{border:1px solid var(--ink);background:none;color:var(--ink);border-radius:99px;padding:7px 18px;font:600 .9rem Figtree;cursor:pointer}.pill[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.studio{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start;margin-top:18px}.studio ol{padding-left:20px}
+.alt{background:var(--sand)}details{background:var(--card);border:1px solid var(--sand);border-radius:6px;margin-bottom:10px;padding:2px 18px}summary{cursor:pointer;font-weight:600;padding:12px 0}
+.tip{border-left:3px solid var(--acc);padding:6px 14px;margin:10px 0;font-size:.95rem}.chk{display:block;padding:3px 0}.chk input{margin-right:10px;accent-color:var(--acc)}
+.sw{height:84px;border-radius:4px;margin-bottom:10px}table{border-collapse:collapse;width:100%;font-size:.95rem}td,th{border-bottom:1px solid var(--sand);padding:8px;text-align:left}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}.scroll{overflow-x:auto}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}.modal.open{display:flex}.sheet{background:#fff;color:#222;width:min(720px,100%);max-height:92vh;overflow:auto;padding:24px;border-radius:6px}
+footer{text-align:center;color:var(--mute);padding:40px 5vw;border-top:1px solid var(--sand)}
+@media(max-width:820px){.hero,.studio,.two{grid-template-columns:1fr}.hero{min-height:0}.burger{display:block}nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:14px 5vw;border-bottom:1px solid var(--sand)}nav.open{display:flex}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{body.pp *{visibility:hidden}body.pp .pr,body.pp .pr *{visibility:visible}body.pp .pr{position:absolute;left:0;top:0;width:100%;max-height:none}.noprint{display:none!important}}
 </style></head><body>
-<header><a class="logo" href="#top"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="22" r="4"/><circle cx="21" cy="22" r="4"/><path d="M11 19 21 4M19 19 9 4"/></svg>Atelier Métamorphe</a>
-<nav><a href="#patterns">Patterns</a><a href="#tutorials">Tutorials</a><a href="#transform">Transformations</a><a href="#how">How it works</a><a href="#about">About</a></nav></header>
+<header><a class="logo" href="#home">Atelier Métamorphe</a>
+<nav id="nav"><a href="#home">Home</a><a href="#patterns">Patterns</a><a href="#studio">Transformation Studio</a><a href="#tutorials">Tutorials</a><a href="#fabrics">Fabric Guide</a><a href="#about">About</a></nav>
+<button class="ib" id="th" aria-label="Toggle light and dark mode">◐</button><button class="ib burger" id="bg" aria-label="Open menu" aria-expanded="false">☰</button></header>
 
-<section class="hero" id="top"><div>
-<h1>One garment. <em>Many</em> lives.</h1>
-<p>Sew a single piece of fabric that wraps, twists and ties into a top, a skirt, a dress or a cape. Download printable patterns, follow illustrated tutorials, and learn the construction behind every transformation.</p>
-<div class="row"><a class="btn" href="#patterns">Browse patterns</a><a class="btn ghost" href="#tutorials">Explore tutorials</a></div></div>
-<div class="stage"><div data-fig="hero"></div></div></section>
-<div class="tape"></div>
+<section class="hero" id="home"><div><div class="eyebrow">Transformable fashion & sewing</div>
+<h1>One garment. <em>Many lives.</em></h1>
+<p class="l">Atelier Métamorphe is a free library of printable patterns, sewing lessons and styling guides for clothes that change shape, so you can sew less and wear more.</p>
+<div class="row"><a class="btn" href="#patterns">Explore the Collection</a><a class="btn o" href="#tutorials">Start a tutorial</a></div></div>
+<div class="stage"><div id="hf"></div><p class="cap" id="hc" aria-live="polite"></p></div></section>
 
-<section id="patterns"><h2>Printable pattern library</h2><p>Every pattern prints on home paper at 100% scale, with registration marks for taping sheets together.</p>
-<div class="filters" role="search">
-<input id="q" type="search" placeholder="Search patterns (e.g. wrap, reversible)" aria-label="Search patterns">
-<select id="fType" aria-label="Clothing type"><option value="">All clothing</option><option>Top</option><option>Skirt</option><option>Dress</option><option>Multi-way</option></select>
-<select id="fDiff" aria-label="Difficulty"><option value="">Any difficulty</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select>
-<select id="fSize" aria-label="Size"><option value="">Any size</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
-<select id="fTr" aria-label="Transformation"><option value="">Any style</option><option>No-sew</option><option>Reversible</option><option>Adjustable</option><option>Convertible</option></select></div>
-<div class="grid" id="plist"></div><p id="none" hidden>No patterns match. Clear a filter to see more.</p></section>
+<section class="alt" style="max-width:none"><div style="max-width:1160px;margin:auto" class="two"><div><div class="eyebrow">Why transformable?</div><h2>Fewer clothes, more outfits</h2><p>A transformable garment is cut and tied so that one piece can be worn several ways. A single wrap becomes a halter top, a skirt or a dress. You sew once and style many times.</p><a class="btn o" href="#studio">Try the Transformation Studio</a></div>
+<div class="grid" id="feat" style="grid-template-columns:1fr 1fr"></div></div></section>
 
-<section id="tutorials"><h2>Step-by-step tutorials</h2>
-<div class="steptabs" id="ttabs"></div><div class="tut" id="tut"></div></section>
+<section id="patterns"><div class="eyebrow">Pattern catalog</div><h2>Printable patterns</h2>
+<div class="tools"><input type="search" id="q" placeholder="Search patterns" aria-label="Search patterns"><select id="fc" aria-label="Category"></select><select id="fd" aria-label="Difficulty"><option value="">Any difficulty</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select><label class="pill" style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="ff"> Favorites only</label></div>
+<div class="grid" id="pl"></div><p id="none" hidden>No patterns match your search.</p></section>
 
-<section id="transform"><h2>One garment → multiple styles</h2>
-<div class="two"><div class="stage" style="border-radius:24px"><div data-fig="show"></div></div>
-<div><h3 id="tname">The Infinity Wrap</h3><p>Pick a style and watch the same circle of jersey change shape. Each style has its own tying guide in the tutorials.</p><div class="grid" id="tcards" style="grid-template-columns:1fr 1fr;gap:10px"></div></div></div></section>
+<section id="studio" class="alt" style="max-width:none"><div style="max-width:1160px;margin:auto"><div class="eyebrow">Interactive</div><h2>Transformation Studio</h2><p>Choose a garment, then choose how to wear it. Each style has its own step-by-step instructions.</p>
+<div class="pills" id="sg"></div><div class="studio"><div class="stage" style="border-radius:12px"><div id="sf"></div></div><div><div class="pills" id="ss"></div><h3 id="sn"></h3><p id="sd"></p><ol id="so"></ol></div></div></div></section>
 
-<section id="how"><h2>How it works</h2><div class="steps">
-<div><h3>Choose</h3><p>Filter patterns by garment, size and skill level.</p></div>
-<div><h3>Print</h3><p>Download the PDF-ready sheet and tape the pages together.</p></div>
-<div><h3>Sew</h3><p>Follow the illustrated steps, with a tip at every tricky seam.</p></div>
-<div><h3>Transform</h3><p>Tie, twist and wrap it into each style you saw above.</p></div></div></section>
+<section id="tutorials"><div class="eyebrow">Sewing tutorial center</div><h2>Learn to sew, step by step</h2>
+<div class="tools"><input type="search" id="tq" placeholder="Search tutorials" aria-label="Search tutorials"><select id="tc" aria-label="Tutorial category"></select></div><div id="tl"></div></section>
 
-<section id="about"><h2>About the project</h2><p>Atelier Métamorphe is a free learning space for students and first-time sewists who want fewer garments that do more. Patterns are drafted to use simple rectangles and circles, so you can learn construction without expensive tools or complicated fittings.</p></section>
-<footer>Stitched with care · Patterns are free for personal and classroom use</footer>
+<section id="fabrics" class="alt" style="max-width:none"><div style="max-width:1160px;margin:auto"><div class="eyebrow">Fabric & materials guide</div><h2>Choosing your fabric</h2><div class="grid" id="fl"></div>
+<h2 style="margin-top:56px">Measurement guide</h2><div class="two"><div><svg viewBox="0 0 200 270" style="width:100%;max-width:260px" role="img" aria-label="Body with six measurement lines"><g fill="none" stroke="currentColor" stroke-width="1.5" opacity=".6"><circle cx="100" cy="24" r="14"/><path d="M100 38V50M60 56Q100 46 140 56L146 110L132 118L130 150L138 262M60 56L54 110L68 118L70 150L62 262"/></g><g stroke="#a8442f" stroke-width="2.5"><path d="M60 54H140M64 86H136M72 118H128M64 150H136M166 54V262M150 82H170"/></g><g fill="currentColor" font-size="12" font-weight="700"><text x="142" y="52">D</text><text x="138" y="84">A</text><text x="130" y="116">B</text><text x="138" y="148">C</text><text x="172" y="160">E</text><text x="172" y="86">F</text></g></svg></div>
+<div><ol style="padding-left:20px"><li><b>A Bust:</b> around the fullest part of the chest.</li><li><b>B Waist:</b> around the narrowest part of the torso.</li><li><b>C Hip:</b> around the fullest part of the hips.</li><li><b>D Shoulder width:</b> from one shoulder point to the other, across the back.</li><li><b>E Garment length:</b> from the shoulder or waist down to the hem you want.</li><li><b>F Arm circumference:</b> around the fullest part of the upper arm.</li></ol><p>Keep the tape snug but not tight, and measure over thin clothing. Compare your numbers with the table and choose the size that fits your largest measurement. For stretch fabrics, choose the smaller size. Your numbers are never stored.</p></div></div>
+<div class="scroll"><table><tr><th>Size</th><th>Bust (cm)</th><th>Waist (cm)</th><th>Hip (cm)</th></tr><tr><td>XS</td><td>80</td><td>62</td><td>86</td></tr><tr><td>S</td><td>84</td><td>66</td><td>90</td></tr><tr><td>M</td><td>90</td><td>72</td><td>96</td></tr><tr><td>L</td><td>98</td><td>80</td><td>104</td></tr><tr><td>XL</td><td>106</td><td>88</td><td>112</td></tr></table></div></div></section>
 
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Pattern viewer"><div class="sheet" id="sheet"></div></div>
+<section id="about"><div class="eyebrow">About</div><h2>The Philosophy Behind Transformable Fashion</h2><div class="grid" id="ph"></div>
+<h2 style="margin-top:56px">Frequently asked questions</h2><div id="fq"></div></section>
+<footer>Atelier Métamorphe · One garment. Many lives. · Patterns free for personal and classroom use</footer>
+<div class="modal" id="md" role="dialog" aria-modal="true" aria-label="Pattern sheet"><div class="sheet" id="sh"></div></div>
 
 <script>
-const STY=[
-{n:"Top",d:"M70 62Q100 78 130 62L138 128H62Z M70 62 60 30M130 62 140 30",c:"Cross the front panels and tie behind the neck."},
-{n:"Skirt",d:"M62 126H138L170 238H30Z",c:"Step in, pull to the waist and knot at the hip."},
-{n:"Dress",d:"M70 62Q100 78 130 62L138 126L170 238H30L62 126Z",c:"Wrap high, cross at the back and tie at the waist."},
-{n:"Cape",d:"M62 66Q100 50 138 66L178 168Q100 196 22 168Z",c:"Drape over shoulders and fasten at the collarbone."}];
-const COL=["#c9402b","#16224a","#e0a82e","#3d7a8c"];
-function fig(el,auto){
- el.innerHTML=`<svg class="fig" viewBox="0 0 200 260" role="img" aria-label="Garment transforming">
- <g fill="none" stroke="currentColor" stroke-width="1.5" opacity=".5"><circle cx="100" cy="30" r="14"/><path d="M100 44V60M70 62Q100 74 130 62M64 64 62 130M136 64 138 130M62 130 58 250M138 130 142 250"/></g>
- ${STY.map((s,i)=>`<g class="g" data-i="${i}"><path class="gp" fill="${COL[i]}" fill-opacity=".85" d="${s.d}"/><path d="${s.d.split('M')[1]?'M'+s.d.split('M')[1]:''}" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="2 4" opacity=".6"/></g>`).join("")}</svg>
- <div class="chips">${STY.map((s,i)=>`<button class="chip" aria-pressed="false" data-i="${i}">${s.n}</button>`).join("")}</div><p class="cap" aria-live="polite"></p>`;
- let cur=0,t;
- const set=i=>{cur=i;el.querySelectorAll('.g').forEach(g=>g.classList.toggle('on',+g.dataset.i===i));
-  el.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',+c.dataset.i===i));
-  el.querySelector('.cap').textContent=STY[i].n+": "+STY[i].c};
- el.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{clearInterval(t);set(+c.dataset.i)});
- set(0);if(auto&&!matchMedia('(prefers-reduced-motion:reduce)').matches)t=setInterval(()=>set((cur+1)%4),2800);
-}
-fig(document.querySelector('[data-fig=hero]'),true);fig(document.querySelector('[data-fig=show]'),false);
-document.getElementById('tcards').innerHTML=STY.map(s=>`<div class="card"><h3>${s.n}</h3><p class="meta">${s.c}</p></div>`).join("");
+const $=s=>document.querySelector(s),ls={g:k=>{try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},s:(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const SH={halter:"M100 44L132 72L138 128H62L68 72Z",cross:"M70 62L100 92L130 62L138 128H62Z",onesh:"M58 78L130 60L138 128H62Z",top:"M70 62Q100 78 130 62L138 128H62Z",skirt:"M62 126H138L170 238H30Z",dress:"M70 62Q100 78 130 62L138 126L170 238H30L62 126Z",hdress:"M100 44L132 72L138 126L170 238H30L62 126L68 72Z",odress:"M58 78L130 60L138 126L170 238H30L62 126Z",vdress:"M72 60L100 104L128 60L138 126L170 238H30L62 126Z",cape:"M62 66Q100 50 138 66L178 168Q100 196 22 168Z",shawl:"M34 72Q100 40 166 72L156 196Q100 214 44 196Z"};
+const fig=(k,c)=>`<svg class="fig" viewBox="0 0 200 260" role="img" aria-label="${k} style"><g fill="none" stroke="currentColor" stroke-width="1.4" opacity=".45"><circle cx="100" cy="28" r="14"/><path d="M100 42V60M64 64L62 130L58 250M136 64L138 130L142 250"/></g><path class="gp" d="${SH[k]}" fill="${c}" fill-opacity=".9"/></svg>`;
+const G=[
+{n:"Infinity Wrap",cat:"Multi-way",d:"Beginner",t:"3 hours",f:"2 m jersey knit",sz:"XS–XL",tl:"Scissors, pins, chalk, tape measure",c:"#a8442f",ds:"One large circle of jersey with long ties, worn as a top, skirt or dress.",st:[["Halter Top","halter","The ties go behind the neck and the fabric falls to the waist.","Hold the circle against your chest|Bring both ties behind your neck|Knot twice and adjust the fall"],["Cross-Back Top","cross","The ties cross behind the back for a secure fit.","Place the center on your chest|Cross the ties behind your back|Bring them forward and tie at the waist"],["One-Shoulder Dress","odress","One tie goes over a single shoulder and the rest drapes to the floor.","Hold the circle at one side of the chest|Tie the ties over one shoulder|Gather the waist with a belt or twist"],["Skirt","skirt","Step into the circle and tie it at the waist.","Step through the center hole|Pull to the waist|Knot the ties at the hip"]]},
+{n:"Convertible Shawl",cat:"Wraps",d:"Beginner",t:"2 hours",f:"1.5 m rayon or lightweight wool",sz:"One size",tl:"Scissors, pins, iron, thread",c:"#6b705c",ds:"A wide rectangle with two button loops that can be draped three ways.",st:[["Shawl","shawl","Drape the rectangle over both shoulders.","Center the fabric on your back|Bring both ends forward|Let them hang loose"],["Cape","cape","Fasten the loops at the collarbone for a cape shape.","Drape over both shoulders|Join the two loops with the button|Spread the fabric over the arms"],["Wrap Top","top","Cross the ends at the front and tie behind the back.","Place the center on your chest|Cross the ends under the arms|Tie behind the back"]]},
+{n:"Reversible Skirt",cat:"Skirts",d:"Intermediate",t:"5 hours",f:"1.5 m cotton, two prints",sz:"XS–XL",tl:"Scissors, pins, iron, sewing machine",c:"#b08968",ds:"A wrap skirt lined with a second print so it gives two looks in one garment.",st:[["Print A","skirt","The first print shows on the outside.","Wrap with print A facing out|Overlap the front edges|Tie the waist strap at the side"],["Print B","skirt","Turn the skirt inside out for a different look.","Remove the skirt and turn it over|Wrap with print B facing out|Tie the strap at the opposite side"]]},
+{n:"Multiway Top",cat:"Tops",d:"Intermediate",t:"4 hours",f:"1 m jersey or cotton blend",sz:"XS–XL",tl:"Scissors, pins, elastic, sewing machine",c:"#7a5c58",ds:"A fitted bodice with two long straps that can be tied three ways.",st:[["Halter","halter","Tie both straps behind the neck.","Place the bodice on your chest|Take both straps up and around the neck|Tie a bow"],["Cross-Back","cross","Cross the straps behind the back.","Place the bodice on your chest|Cross the straps over your shoulders and behind you|Tie at the waist"],["One-Shoulder","onesh","Tie both straps together over one shoulder.","Place the bodice on your chest|Tie both straps at one shoulder|Adjust the knot height"]]},
+{n:"Convertible Dress",cat:"Dresses",d:"Advanced",t:"8 hours",f:"3 m linen or rayon",sz:"S–XL",tl:"Scissors, pins, snaps, sewing machine",c:"#3d5a5b",ds:"A simple A-line dress with snap-on straps for three necklines.",st:[["V-Neck","vdress","Straps cross at the center for a deep V neckline.","Snap the straps to the front corners|Cross them over the chest|Snap the ends to the back"],["Halter Dress","hdress","Straps join behind the neck.","Snap the straps to the front corners|Take both behind the neck|Fasten the back snap"],["Wide Straps","dress","Straps sit straight over each shoulder.","Snap one strap to each front corner|Place them over the shoulders|Snap to the back"]]}];
 
-const P=[
-{n:"Infinity Wrap Dress",t:"Multi-way",d:"Beginner",s:["XS","S","M","L","XL"],tr:["No-sew","Convertible"],m:["Jersey","Thread"],i:"Circle of stretch jersey that becomes a dress, top, skirt or cape.",x:"Dress"},
-{n:"Reversible Wrap Skirt",t:"Skirt",d:"Beginner",s:["S","M","L"],tr:["Reversible","Adjustable"],m:["Cotton","Thread","Buttons"],i:"Two prints in one skirt, with an adjustable wrap waist.",x:"Skirt"},
-{n:"Scarf-to-Top",t:"Top",d:"Beginner",s:["XS","S","M","L","XL"],tr:["No-sew","Convertible"],m:["Silk-feel scarf"],i:"A square scarf folded into a halter, tube or crossover top.",x:"Top"},
-{n:"Convertible Pinafore",t:"Dress",d:"Intermediate",s:["S","M","L","XL"],tr:["Adjustable","Convertible"],m:["Linen","Thread","Snaps"],i:"Wear it as a pinafore, a skirt or a long vest using snap-on straps.",x:"Dress"},
-{n:"Twist-Front Top",t:"Top",d:"Intermediate",s:["XS","S","M"],tr:["Adjustable"],m:["Rayon","Elastic","Thread"],i:"A twisted bodice with ties that change the neckline.",x:"Top"},
-{n:"Eight-Way Gown",t:"Multi-way",d:"Advanced",s:["S","M","L"],tr:["Convertible","Adjustable","Reversible"],m:["Satin","Lining","Thread","Hook & eye"],i:"Reversible full-length gown with eight documented wearing styles.",x:"Dress"},
-{n:"Pocket Cape-Skirt",t:"Skirt",d:"Intermediate",s:["M","L","XL"],tr:["Convertible"],m:["Wool blend","Thread"],i:"A half-circle skirt that drapes as a cape with hidden pockets.",x:"Cape"},
-{n:"Tie-Hem Tank",t:"Top",d:"Beginner",s:["XS","S","M","L","XL"],tr:["No-sew","Adjustable"],m:["T-shirt","Scissors"],i:"Upcycle a T-shirt into a tank with an adjustable tied hem.",x:"Top"}];
-const dN={Beginner:1,Intermediate:2,Advanced:3};
-function mini(k){const s=STY.find(z=>z.n===k)||STY[2];return `<svg class="prev" viewBox="0 0 200 260" preserveAspectRatio="xMidYMid meet"><path d="${s.d}" fill="none" stroke="#c9402b" stroke-width="2.5" stroke-dasharray="6 4"/><path d="M20 250H180M20 244V256M180 244V256" stroke="#e0a82e" stroke-width="2"/></svg>`}
-const $=id=>document.getElementById(id);
-function render(){const q=$('q').value.toLowerCase(),a=$('fType').value,b=$('fDiff').value,c=$('fSize').value,e=$('fTr').value;
- const r=P.filter(p=>(!q||(p.n+p.i+p.m.join()+p.tr.join()).toLowerCase().includes(q))&&(!a||p.t===a)&&(!b||p.d===b)&&(!c||p.s.includes(c))&&(!e||p.tr.includes(e)));
- $('none').hidden=r.length>0;
- $('plist').innerHTML=r.map(p=>`<article class="card">${mini(p.x)}<h3>${p.n}</h3><span class="tag d${dN[p.d]}">${p.d}</span>${p.tr.map(t=>`<span class="tag">${t}</span>`).join("")}<p class="meta">${p.i}</p><p class="meta"><b>Sizes:</b> ${p.s.join(", ")}<br><b>Materials:</b> ${p.m.join(", ")}</p><button class="btn" data-n="${p.n}">Download / print</button></article>`).join("")}
-['q','fType','fDiff','fSize','fTr'].forEach(i=>$(i).addEventListener('input',render));render();
-$('plist').onclick=e=>{const b=e.target.closest('button');if(!b)return;const p=P.find(z=>z.n===b.dataset.n);
- $('sheet').innerHTML=`<div class="noprint" style="display:flex;justify-content:space-between;gap:8px;margin-bottom:12px"><button class="btn" onclick="print()">Print / save as PDF</button><button class="btn ghost" style="color:#16224a" onclick="modal.classList.remove('open')">Close</button></div>
- <h2 style="font-family:'Bodoni Moda',serif">${p.n}</h2><p>${p.i} Sizes: ${p.s.join(", ")}. Materials: ${p.m.join(", ")}.</p>
- <svg viewBox="0 0 400 300" style="width:100%;border:2px solid #16224a;background:#f4f8ff"><defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#cdd8ee" stroke-width=".7"/></pattern></defs><rect width="400" height="300" fill="url(#g)"/><g transform="translate(110 20) scale(.95)"><path d="${(STY.find(s=>s.n===p.x)||STY[2]).d}" fill="none" stroke="#c9402b" stroke-width="2.5" stroke-dasharray="7 4"/></g><path d="M20 285H120M20 279V291M120 279V291" stroke="#16224a"/><text x="30" y="272" font-size="11" fill="#16224a">Test square: 10 cm — check scale</text><path d="M200 12v14M193 19h14" stroke="#16224a"/><text x="300" y="50" font-size="11" fill="#16224a">Grainline ↕</text><path d="M330 60V150" stroke="#16224a" marker-end="url(#a)"/></svg>
- <p style="font-size:.85rem">Print at 100% scale. Cut on the dashed line, adding a 1.5 cm seam allowance.</p>`;
- modal.classList.add('open')};
-modal.onclick=e=>{if(e.target===modal)modal.classList.remove('open')};addEventListener('keydown',e=>{if(e.key==='Escape')modal.classList.remove('open')});
+// theme, nav
+const root=document.documentElement;root.dataset.t=ls.g('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+$('#th').onclick=()=>{root.dataset.t=root.dataset.t==='dark'?'light':'dark';ls.s('theme',root.dataset.t)};
+$('#bg').onclick=()=>{const o=$('#nav').classList.toggle('open');$('#bg').setAttribute('aria-expanded',o)};$('#nav').onclick=e=>{if(e.target.tagName==='A')$('#nav').classList.remove('open')};
 
-const T=[{n:"Infinity Wrap Dress",time:"3 hours",d:"Beginner",tools:["2 m stretch jersey","Scissors","Pins","Tape measure"],
- steps:[["Mark the circle","Fold the fabric in quarters and measure 90 cm from the folded corner. Mark an arc every 5 cm.","Chalk lines wash out, so press lightly."],["Cut the shape","Cut along the arc, then cut a 5 cm circle at the folded corner for the waist.","Cut with long, even strokes to keep edges smooth."],["Finish the edge","Fold the raw edge 1 cm twice and pin all around.","Pin every 5 cm on curves."],["Stitch the hem","Sew with a narrow zigzag so the seam stretches with the fabric.","Don't pull the jersey while sewing."],["Add the waist ties","Cut two 2 m strips, fold and stitch to the waist opening.","Backstitch at both ends."],["Try every style","Wrap, cross and tie to make the top, skirt, dress and cape.","Practice in front of a mirror."]]},
-{n:"Reversible Wrap Skirt",time:"4 hours",d:"Beginner",tools:["1.5 m of two cottons","Thread","Iron"],
- steps:[["Cut both layers","Cut the pattern twice, one from each print.","Match grainlines."],["Pin right sides together","Place layers face to face and pin around the edge.","Leave a 15 cm gap."],["Stitch and turn","Sew around, trim curves and turn through the gap.","Clip notches on curves."],["Press flat","Iron the seam and topstitch close to the edge.","Use a pressing cloth."],["Attach the ties","Sew ties at the waist corners and enjoy two skirts.","Reinforce with a small box stitch."]]},
-{n:"Scarf-to-Top",time:"20 minutes",d:"Beginner",tools:["Square scarf 1 m","No sewing needed"],
- steps:[["Fold the triangle","Fold the scarf diagonally.","Keep the edges aligned."],["Cross the corners","Bring the two side corners behind your back.","Hold the center against your chest."],["Tie","Tie the corners and the top point behind your neck.","Double knots stay in place."]]}];
-let ti=0,si=0;const sv=n=>`<svg viewBox="0 0 300 160" style="width:100%;background:var(--paper);border:1px solid var(--line)"><path d="M10 80H290" stroke="#c9402b" stroke-width="3" stroke-dasharray="10 6"/><circle cx="${40+n*40}" cy="80" r="14" fill="none" stroke="currentColor" stroke-width="2"/><path d="M${40+n*40} 50V110M${25+n*40} 80H${55+n*40}" stroke="currentColor"/><path d="M10 140H${60+n*45}" stroke="#e0a82e" stroke-width="3"/></svg>`;
-function tut(){const t=T[ti],s=t.steps[si];
- $('ttabs').innerHTML=T.map((x,i)=>`<button class="chip" aria-pressed="${i===ti}" data-t="${i}">${x.n}</button>`).join("");
- $('tut').innerHTML=`<aside><h3>${t.n}</h3><span class="tag d1">${t.d}</span><span class="tag">${t.time}</span><p class="meta"><b>Materials and tools</b></p><ul>${t.tools.map(x=>`<li>${x}</li>`).join("")}</ul><p class="meta">Video walkthrough: coming soon for this project.</p></aside>
- <div><p class="meta">Step ${si+1} of ${t.steps.length}</p><div class="bar"><i style="width:${(si+1)/t.steps.length*100}%"></i></div><h3>${s[0]}</h3>${sv(si)}<p>${s[1]}</p><div class="tip"><b>Sewing tip:</b> ${s[2]}</div>
- <button class="btn ghost" id="pv" ${si?'':'disabled'}>Previous step</button> <button class="btn" id="nx" ${si<t.steps.length-1?'':'disabled'}>Next step</button></div>`;
- $('pv').onclick=()=>{si--;tut()};$('nx').onclick=()=>{si++;tut()};}
-$('ttabs').onclick=e=>{const b=e.target.closest('button');if(b){ti=+b.dataset.t;si=0;tut()}};tut();
+// hero
+const H=[["halter","#a8442f","Halter top: the ties meet behind the neck."],["dress","#3d5a5b","Dress: the same circle, wrapped higher."],["skirt","#b08968","Skirt: step in and tie at the waist."],["cape","#7a5c58","Cape: drape it over the shoulders."]];let hi=0;
+const hs=()=>{const h=H[hi%4];$('#hf').innerHTML=fig(h[0],h[1]);$('#hc').textContent=h[2];hi++};hs();if(!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(hs,3000);
+$('#feat').innerHTML=G.slice(0,4).map(g=>`<div class="card"><div class="pv">${fig(g.st[0][1],g.c)}</div><h3>${g.n}</h3><p class="meta">${g.st.length} ways to wear</p></div>`).join("");
+
+// patterns
+let fv=ls.g('fav')||[];$('#fc').innerHTML='<option value="">All categories</option>'+[...new Set(G.map(g=>g.cat))].map(c=>`<option>${c}</option>`).join("");
+function rp(){const q=$('#q').value.toLowerCase(),c=$('#fc').value,d=$('#fd').value,f=$('#ff').checked;
+ const r=G.filter(g=>(!q||(g.n+g.ds+g.f+g.tl+g.st.map(s=>s[0]).join()).toLowerCase().includes(q))&&(!c||g.cat===c)&&(!d||g.d===d)&&(!f||fv.includes(g.n)));$('#none').hidden=r.length>0;
+ $('#pl').innerHTML=r.map(g=>`<article class="card"><button class="fav" data-f="${g.n}" aria-label="Favorite ${g.n}" aria-pressed="${fv.includes(g.n)}">${fv.includes(g.n)?'♥':'♡'}</button><div class="pv">${fig(g.st[0][1],g.c)}</div><h3>${g.n}</h3><span class="tag">${g.cat}</span><span class="tag">${g.d}</span><span class="tag">${g.t}</span><p>${g.ds}</p><p class="meta"><b>Sizes:</b> ${g.sz}<br><b>Fabric:</b> ${g.f}<br><b>Tools:</b> ${g.tl}<br><b>Styles:</b> ${g.st.map(s=>s[0]).join(", ")}</p><button class="btn s" data-d="${g.n}">Download PDF</button> <button class="btn s o" data-v="${g.n}">View instructions</button></article>`).join("")}
+['q','fc','fd','ff'].forEach(i=>$('#'+i).addEventListener('input',rp));rp();
+const pr=el=>{el.classList.add('pr');document.body.classList.add('pp');print();document.body.classList.remove('pp');el.classList.remove('pr')};
+$('#pl').onclick=e=>{const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.f){const n=b.dataset.f;fv=fv.includes(n)?fv.filter(x=>x!==n):[...fv,n];ls.s('fav',fv);rp()}
+ if(b.dataset.v){gi=G.findIndex(g=>g.n===b.dataset.v);si=0;rs();$('#studio').scrollIntoView()}
+ if(b.dataset.d){const g=G.find(x=>x.n===b.dataset.d);$('#sh').innerHTML=`<div class="noprint" style="display:flex;gap:8px;margin-bottom:12px"><button class="btn s" id="pb">Print / save as PDF</button><button class="btn s o" style="color:#222;border-color:#222" id="cb">Close</button></div><h2>${g.n} pattern</h2><p>${g.ds} Sizes: ${g.sz}. Fabric: ${g.f}. Tools: ${g.tl}. Time: ${g.t}.</p><svg viewBox="0 0 400 280" style="width:100%;border:1px solid #222"><g transform="translate(120 10)"><path d="${SH[g.st[0][1]]}" fill="none" stroke="#a8442f" stroke-width="2.5" stroke-dasharray="7 4"/></g><path d="M20 250h100M20 244v12M120 244v12" stroke="#222"/><text x="20" y="238" font-size="11">10 cm test square: check scale</text><path d="M330 40v110" stroke="#222"/><text x="300" y="30" font-size="11">Grainline</text></svg><p style="font-size:.85rem">Print at 100% scale. Cut on the dashed line and add a 1.5 cm seam allowance.</p>`;
+  $('#md').classList.add('open');$('#pb').onclick=()=>pr($('#sh'));$('#cb').onclick=()=>$('#md').classList.remove('open')}};
+$('#md').onclick=e=>{if(e.target.id==='md')$('#md').classList.remove('open')};addEventListener('keydown',e=>{if(e.key==='Escape')$('#md').classList.remove('open')});
+
+// studio
+let gi=0,si=0;$('#sg').innerHTML=G.map((g,i)=>`<button class="pill" data-i="${i}">${g.n}</button>`).join("");
+function rs(){const g=G[gi],s=g.st[si];[...$('#sg').children].forEach((b,i)=>b.setAttribute('aria-pressed',i===gi));
+ $('#ss').innerHTML=g.st.map((x,i)=>`<button class="pill" data-j="${i}" aria-pressed="${i===si}">${x[0]}</button>`).join("");
+ $('#sf').innerHTML=fig(s[1],g.c);$('#sn').textContent=g.n+": "+s[0];$('#sd').textContent=s[2];$('#so').innerHTML=s[3].split("|").map(x=>`<li>${x}</li>`).join("")}
+$('#sg').onclick=e=>{const b=e.target.closest('button');if(b){gi=+b.dataset.i;si=0;rs()}};$('#ss').onclick=e=>{const b=e.target.closest('button');if(b){si=+b.dataset.j;rs()}};rs();
+
+// tutorials
+const T=[
+["Beginner Sewing","Threading and Using a Sewing Machine","Beginner","30 min","Sewing machine, thread, scrap fabric","Wind the bobbin and place it in the case|Thread the machine following the numbered guides|Lower the presser foot and sew a straight line on scrap fabric|Practice stopping and backstitching","Practice on scrap fabric before your project.","Sewing with the presser foot up causes tangled thread."],
+["Fabric Preparation","Washing, Drying and Ironing Fabric","Beginner","45 min","Fabric, iron, water","Wash and dry the fabric the way you will care for the finished garment|Iron out all creases|Straighten the cut edge by pulling a loose thread","Pre-washing prevents shrinking after you sew.","Skipping the wash can make a finished garment too small."],
+["Cutting Techniques","Cutting a Circle from Fabric","Beginner","40 min","Fabric, chalk, string, scissors","Fold the fabric in half twice to make quarters|Tie chalk to a string and pin the other end at the folded corner|Draw an arc and cut along it|Cut a small arc at the corner for the waist","Cut with long, smooth strokes.","Moving the fabric while cutting makes an uneven edge."],
+["Basic Stitching","Straight Stitch, Zigzag and Backstitch","Beginner","30 min","Machine, thread, scrap fabric","Sew a straight stitch for seams|Switch to a narrow zigzag for stretch fabric|Backstitch at the start and end of every seam","Use a ballpoint needle on jersey.","Pulling the fabric through stretches the seam."],
+["Garment Construction","Sewing a Reversible Wrap Skirt","Intermediate","4 hours","Two cottons, thread, pins, iron","Cut both layers from the pattern|Pin right sides together and sew, leaving a gap|Turn it right side out and press|Topstitch the edge and attach the ties","Clip the curves so they lie flat.","Forgetting the turning gap means you cannot turn the skirt out."],
+["Garment Transformations","Making Ties and Straps","Intermediate","1 hour","Fabric strips, thread, safety pin","Cut strips four times the finished width|Fold in half lengthwise and sew|Turn right side out with a safety pin|Press flat and close the ends","Use a bias strip for softer drape.","Cutting straps too short limits the ways you can tie them."],
+["Finishing Techniques","Hemming Jersey and Woven Fabric","Beginner","1 hour","Thread, pins, iron, needle","Fold the raw edge 1 cm and press|Fold again and pin|Sew close to the fold, using a zigzag on jersey|Press the hem flat","Press before you sew.","Stretching jersey while hemming creates waves."]];
+$('#tc').innerHTML='<option value="">All categories</option>'+[...new Set(T.map(t=>t[0]))].map(c=>`<option>${c}</option>`).join("");
+let pg=ls.g('prog')||{};
+function rt(){const q=$('#tq').value.toLowerCase(),c=$('#tc').value;
+ $('#tl').innerHTML=T.map((t,i)=>({t,i})).filter(({t})=>(!q||t.join(" ").toLowerCase().includes(q))&&(!c||t[0]===c)).map(({t,i})=>{const st=t[5].split("|"),dn=(pg[i]||[]).length;
+ return `<details data-i="${i}"><summary>${t[1]} <span class="tag">${t[0]}</span><span class="tag">${t[2]}</span><span class="tag">${t[3]}</span><span class="tag">${dn}/${st.length} done</span></summary><p class="meta"><b>Materials:</b> ${t[4]}</p>${st.map((s,j)=>`<label class="chk"><input type="checkbox" data-i="${i}" data-j="${j}" ${(pg[i]||[]).includes(j)?'checked':''}>${j+1}. ${s}</label>`).join("")}<div class="tip"><b>Tip:</b> ${t[6]}</div><div class="tip"><b>Avoid:</b> ${t[7]}</div><button class="btn s o noprint" data-p="${i}">Print this tutorial</button><br><br></details>`}).join("")||'<p>No tutorials match.</p>'}
+$('#tq').oninput=rt;$('#tc').oninput=rt;rt();
+$('#tl').onchange=e=>{const k=e.target;if(!k.dataset.j)return;const i=k.dataset.i,j=+k.dataset.j,a=pg[i]||[];pg[i]=k.checked?[...a,j]:a.filter(x=>x!==j);ls.s('prog',pg);const d=k.closest('details');d.querySelector('summary .tag:last-child').textContent=pg[i].length+'/'+T[i][5].split("|").length+' done'};
+$('#tl').onclick=e=>{const b=e.target.closest('[data-p]');if(b)pr(b.closest('details'))};
+
+// fabrics
+const F=[["Cotton","#e9e1d3","Soft, matte","Low","Light to medium","Moderate","Skirts, tops, linings","Easy to sew, breathable","Wrinkles and shrinks"],["Jersey Knit","#c9b8a6","Smooth, stretchy","High","Light to medium","Fluid","Wraps, tops, dresses","Comfortable, no hemming needed","Curls at the edges"],["Linen","#d6c6a5","Textured, crisp","Very low","Medium","Structured","Dresses, pinafores","Strong and cool","Wrinkles easily"],["Rayon","#a9786b","Silky, smooth","Low","Light","Very fluid","Shawls, dresses","Beautiful drape","Frays and slips while cutting"],["Polyester","#6b705c","Smooth, slightly slick","Low to medium","Light to medium","Moderate","Reversible skirts, linings","Durable, wrinkle resistant","Less breathable"]];
+$('#fl').innerHTML=F.map(f=>`<div class="card"><div class="sw" style="background:repeating-linear-gradient(45deg,${f[1]} 0 3px,rgba(0,0,0,.08) 3px 4px),${f[1]}"></div><h3>${f[0]}</h3><p class="meta"><b>Texture:</b> ${f[2]}<br><b>Stretch:</b> ${f[3]}<br><b>Weight:</b> ${f[4]}<br><b>Drape:</b> ${f[5]}<br><b>Best for:</b> ${f[6]}</p><p class="meta"><b>Pros:</b> ${f[7]}<br><b>Cons:</b> ${f[8]}</p></div>`).join("");
+
+// about
+$('#ph').innerHTML=[["Reduce clothing waste","Garments that do several jobs mean fewer pieces to buy, store and throw away."],["Create versatile garments","One well-cut piece can cover a top, skirt and dress in your wardrobe."],["Reuse existing fabrics","Old sheets, scarves and offcuts can become new clothes."],["Repair and repurpose","Mend what you own and turn worn pieces into something new."],["Think before you buy","Ask how often you will wear something before you bring it home."],["Support sustainable fashion","Choose durable fabrics and share what you learn."]].map(p=>`<div class="card"><h3>${p[0]}</h3><p class="meta">${p[1]}</p></div>`).join("");
+$('#fq').innerHTML=[["Are the patterns free?","Yes. They are free for personal and classroom use."],["How do I print a pattern?","Click Download PDF, then Print / save as PDF. Set the scale to 100% and check the 10 cm test square."],["Which fabric should a beginner choose?","Cotton is the easiest to cut and sew. Use jersey once you are comfortable with zigzag stitching."],["Is my progress saved?","Your favorites, theme and tutorial progress are saved in your own browser only, and nothing is sent anywhere."]].map(q=>`<details><summary>${q[0]}</summary><p>${q[1]}</p></details>`).join("");
 </script></body></html>
